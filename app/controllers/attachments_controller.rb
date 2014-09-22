@@ -1,4 +1,5 @@
 class AttachmentsController < ApplicationController
+    before_filter :require_login, except: [:create]
     def create
       @attachment = Attachment.new(attachment_params)
       @attachment.article_id = params[:article_id]
